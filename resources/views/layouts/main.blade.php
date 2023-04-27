@@ -24,9 +24,11 @@
               <a href="/" class="nav-link">Home</a>
             </li>
             <li class="nav-item">
-              <a href="/users" class="nav-link">Usuario</a>
+              <a href="/users" class="nav-link">Usuario:</a>
             </li>
-
+           
+           
+           
           </ul>
         </div>
       </nav> 

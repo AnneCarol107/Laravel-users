@@ -2,8 +2,6 @@
 @section('title', 'Novo Usuario')
 @section('content')
 
-<h1>Usuário: </h1>
-
 
 <div id="form-create-container" class="col-md-6 offset-md-3">
 
