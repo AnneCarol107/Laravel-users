@@ -27,7 +27,7 @@
     
   <div class="form-group">
     <label for="title">Senha:</label>
-    <input type="password" name="password" placeholder="8 a 16 caracteres"value="{{ $users->password}}">
+    <input type="password" name="password" placeholder="8 a 16 caracteres" value="{{ $users->password}}">
   </div>
 
   <input type="submit" class="btn btn-primary" value="Salvar">

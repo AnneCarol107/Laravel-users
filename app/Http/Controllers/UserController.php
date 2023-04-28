@@ -4,13 +4,22 @@ namespace App\Http\Controllers;
 use App\Models\User; 
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreUpdateUserFormRequest;
 
 class UserController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        $search = request('search');
 
+
+        if($search) {
+            $users = User::Where([
+                ['name', 'like', '%'.$search.'%']
+            ])->get();
+        } else {
+            $users = User::all();
+        }
         return view('users.index', compact('users'));
     }
 
@@ -20,7 +29,7 @@ class UserController extends Controller
 
     }
 
-    public function store(Request $request)
+    public function store(StoreUpdateUserFormRequest $request)
     {
 
         User::create($request->all());
@@ -55,6 +64,9 @@ class UserController extends Controller
 
     public function update(Request $request, $id) 
     {
+        if ($request->password)
+        $data['password'] = bcrypt($request->password);
+
         $data = [
             'name' => $request->name,
             'email' => $request->email,

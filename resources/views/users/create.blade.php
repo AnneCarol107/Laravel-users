@@ -11,15 +11,23 @@
       <legend>Preencha o formulario:</legend>
     @csrf
 
+    @if($errors->any())
+      <ul class="errors">
+        @foreach ($errors->all() as $error )
+        <li class="error">{{ $error }}</li>
+        @endforeach 
+      </ul>
+    @endif
+
     <div class="form-group">
       <label for="title">Nome:</label>
-      <input type="text" name=" name" placeholder="Nome completo ">
+      <input type="text" name=" name" placeholder="Nome completo" value="{{ old('name') }}">
     
     </div>
 
     <div class="form-group">
       <label for="title">Email:</label>
-      <input type="email" name="email" placeholder="email obrigatorio ">
+      <input type="email" name="email" placeholder="email obrigatorio" value="{{ old('email') }}">
     </div>
       
     <div class="form-group">

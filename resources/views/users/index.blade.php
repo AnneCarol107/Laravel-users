@@ -2,11 +2,16 @@
 @section('title', 'Listagem do usuário')
 @section('content')
 
+
     <div class="container mt-5">
 
+        <form class="d-flex" action="{{ route('users-index') }}" method="GET">
+            <input class="form-control me-2" type="search" placeholder="O que você procura?" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+        </form>
     <div class="row">
         <div class="col-sm-10">
-            <h2>Lista  </h2>     
+            <h2>Lista : </h2>     
         </div>
         <div class="col-sm-2">
             <a href="{{ route('users-create') }}" class="btn btn-success">Criar </a>

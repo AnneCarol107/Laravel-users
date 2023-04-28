@@ -16,6 +16,7 @@ header {
   
 .row {
   margin: 0;
+  padding: 50px;
 }
   
 .container-fluid {
@@ -26,59 +27,48 @@ header {
   background-color: #C28008; 
   border: 2px solid #C28008;  
 }
-  
 .btn-primary:hover {
   background-color: #C28008;
   border-color: #C28008;
-  
 }
+
+
 
 #navbar {
   justify-content: space-between;
-  background-color: #fff;
   padding: 5px;
 }
 #navbar a {
   font-size: 20px;
 }
-
 #navbar a:hover {
-  
   color: #e18516;
-  
 }
     
-
 #form-create-container {
   padding: 30px;
   
 }
-
 #form-create-container input {
   font-size: 20px;  
   margin-bottom: 15px;
 }
-  
-
-
 #form-create-container label
 {
   font-weight: bold;
 }
 
-  
 /* footer */
 footer
 {
   text-align: center;
-  background-color: rgb(200, 203, 205);
+  background-color: antiquewhite;
   color: #000000;
   padding: 30px;
   position: absolute;
   bottom: 0;
   width: 100%;
 }
-  
 footer p 
 {
   margin-bottom: 0;
