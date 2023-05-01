@@ -10,16 +10,9 @@ class UserController extends Controller
 {
     public function index()
     {
-        $search = request('search');
+        $users = User::all();
 
 
-        if($search) {
-            $users = User::Where([
-                ['name', 'like', '%'.$search.'%']
-            ])->get();
-        } else {
-            $users = User::all();
-        }
         return view('users.index', compact('users'));
     }
 

@@ -24,8 +24,27 @@
               <a href="/" class="nav-link">Home</a>
             </li>
             <li class="nav-item">
-              <a href="/users" class="nav-link">Usuario:</a>
+              <a href="/users" class="nav-link">Usuario</a>
             </li>
+            @auth
+
+            <div class="container mx-auto px-4 py-8">
+              <form action="{{ route('logout') }}" method="post">
+                  @csrf
+                  <button type="submit" class="btn btn-light">Sair</button>
+              </form>
+          </div>
+         
+            @endauth
+            @guest
+              <li class="nav-item">
+              <a href="/login" class="nav-link">Login</a>
+            </li>
+            <li class="nav-item">
+              <a href="/register" class="nav-link">Cadastrar</a>
+            </li>
+            @endguest
+            
           </ul>
         </div>
       </nav> 

@@ -1,6 +1,8 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +15,20 @@ use App\Http\Controllers\UserController;
 |
 */
 Route::prefix('users')->group(function(){
+Route::get('/{id}/comments', [CommentController::class, 'index'])->name('comments-index');
+Route::get('/{id}/comments/create', [UserController::class, 'create'])->name('comments-create');
+});
+
+
+
+Route::prefix('users')->group(function(){
 Route::get('/', [UserController::class, 'index'])->name('users-index');
 Route::get('/create', [UserController::class, 'create'])->name('users-create');
 Route::post('/', [UserController::class, 'store'])->name('users-store');
 Route::get('/{id}/edit', [UserController::class, 'edit'])->name('users-edit');
 Route::put('/{id}', [UserController::class, 'update'])->name('users-update');
 Route::delete('/{id}', [UserController::class, 'delete'])->name('users-delete');
+
 });
 
 Route::get('/', function () {
@@ -26,3 +36,13 @@ Route::get('/', function () {
 
 });
 
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
