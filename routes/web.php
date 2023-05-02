@@ -14,10 +14,7 @@ use App\Http\Controllers\Admin\CommentController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::prefix('users')->group(function(){
-Route::get('/{id}/comments', [CommentController::class, 'index'])->name('comments-index');
-Route::get('/{id}/comments/create', [UserController::class, 'create'])->name('comments-create');
-});
+
 
 
 

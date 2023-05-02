@@ -3,10 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\{
-Comment,
-User    
-};
+use App\Models\Comment;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -24,14 +22,13 @@ class CommentController extends Controller
     public function index($userId)
     {
 
-        if (!$user = $this->user->find($userId))
-        {
+        if (!$user = $this->user->find($userId)){
             return redirect()->back();
         }
+
         $comments = $user->comments()->get();
 
-       
-        return view('comments.index', compact('user', 'comments' ));
+        return view('users.comments.index', compact('user', 'comments'));
     }
     
     public function create($userId)
